@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class DuplicateCharacterDetector {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter string: ");
+        String input = sc.nextLine();
+
+        char[] chars = input.toCharArray();
+        boolean foundDuplicate = false;
+
+        System.out.println("Duplicate characters:");
+
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] == ' ') continue; // ignore spaces
+
+            for (int j = i + 1; j < chars.length; j++) {
+                if (chars[i] == chars[j]) {
+                    System.out.println(chars[i]);
+                    foundDuplicate = true;
+                    break; // stop repeating same character
+                }
+            }
+        }
+
+        if (!foundDuplicate) {
+            System.out.println("No duplicate characters found");
+        }
+    }
+}
